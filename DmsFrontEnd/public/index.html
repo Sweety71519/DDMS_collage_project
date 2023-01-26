@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/assets/images/20210824155405.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/assets/images/20210824155405.png" />
+   
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- App favicon -->
+        <link rel="shortcut icon" href="%PUBLIC_URL%/assets/images/20210824155405.png">
+
+        <!-- Bootstrap Css -->
+        <link href="%PUBLIC_URL%/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="%PUBLIC_URL%/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="%PUBLIC_URL%/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <title>DMS</title>
+  </head>
+  <body >
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+       <!-- JAVASCRIPT -->
+        <script src="%PUBLIC_URL%/assets/libs/jquery/jquery.min.js"></script>
+        <script src="%PUBLIC_URL%/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="%PUBLIC_URL%/assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="%PUBLIC_URL%/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="%PUBLIC_URL%/assets/libs/node-waves/waves.min.js"></script>
+        <script src="%PUBLIC_URL%/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script src="%PUBLIC_URL%/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+
+        <!-- App js -->
+        <script src="%PUBLIC_URL%/assets/js/dms.js"></script>
+        <script> 
+       //unauthorised-access 
+          $(function() {
+            var pathArray = window.location.pathname.split('/');
+            console.log(pathArray);
+              if(pathArray[1]=="unauthorised-access")
+              {
+                $('body').addClass("authentication-bg");
+              }
+              else{
+                if($('body').hasClass("authentication-bg") && pathArray[1]!="")
+                {
+                   $('body').removeClass("authentication-bg");
+                }
+               
+                }
+            $("#side-menu").on("click",function(e)
+                {
+            $('#side-menu').metisMenu({
+             toggle: false // disable the auto collapse. Default: true.
+            });
+         });
+    $(".vertical-menu-btn").on("click",function(e)
+    {
+      e.preventDefault();
+      $("body").toggleClass("sidebar-enable"),992<=$(window).width()?$("body").toggleClass("vertical-collpsed"):$("body").removeClass("vertical-collpsed")
+    });
+  
+  });
+  
+          </script>
+  </body>
+
+</html>
